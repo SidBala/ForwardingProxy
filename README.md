@@ -1,26 +1,8 @@
 # A Simple connection Forwarder
 
+Place your proxy on a machine with two interfaces - one with access to the public internet and another with access to the private instance.
 
-Normally we have:
-sequenceDiagram
-    participant Client
-    participant Forwarder
-    participant PublicServer
-
-    Client->>PublicServer: Connect
-    PublicServer->>Client: Accept
-
-when PublicServer is not public, we cannot connect.
-
-With ForwardingProxy:
-sequenceDiagram
-    participant Client
-    participant Forwarder
-    participant PrivateServer
-    Client->>ForwardingProxy: Connect
-    ForwardingProxy->>PublicServer: Connect
-    PublicServer->>ForwardingProxy: Accept
-    ForwardingProxy->>Client: Accept
+Then run ForwardingProxy
 
 ```
 Usage   : ./ForwardingProxy BindAddress:Port ServerPrivateIP:Port
